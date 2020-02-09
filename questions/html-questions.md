@@ -1,7 +1,5 @@
 # HTML Questions
 
----
-
 - What does a `doctype` do? | `doctype` 做什麼用的？
   
   document type(文件型別)的簡寫
