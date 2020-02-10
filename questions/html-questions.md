@@ -47,3 +47,65 @@
     如果頁面使用application/xhtml+xml，一些老的瀏覽器會不兼容
 
 - 你怎麼做一個需要支持多國語言的網頁？
+  
+  - 使用i18n framework
+
+- 使用data- 屬性的好處？
+  
+  - 以往總是在標籤上添加自定義屬性來儲存和使用，但是不知道何時會被重置掉，且也不符合HTML規範
+    
+    因此HTML5加入data屬性，data在頁面上是不顯示的，但卻可讀可寫
+    
+    `<div id="awesome" data-myid="3e4ae6c4e">Some awesome data</div>`
+    
+    `var myid= jQuery("#awesome").data('myid');`
+
+- 考慮 HTML5 作為一個開放式的網站平台，組成 HTML5 的技術有哪些？
+  
+  - 語義特性：HTML5賦予網頁更好的意義和結構
+  
+  - 本地存儲特性：基於HTML5開發的網頁APP擁有更短的啟動時間，更快的聯網速度，這些全得益於HTML5 APP Cache，以及本地存儲功能。  
+  
+  - 連接特性：更有效的連接工作效率，使得基於頁面的實時聊天，更快速的網頁遊戲體驗，更優化的在線交流得到了實現。  
+  
+  - 網頁多媒體特性：支持網頁端的Audio、Video等多媒體功能， 與網站自帶的APPS，攝像頭，影音功能相得益彰。  
+  
+  - CSS3特性：在不犧牲性能和語義結構的前提下，CSS3中提供了更多的風格和更強的效果。  
+
+- 請描述 `cookies`, `sessionStorage` 和 `localStorage` 的不同？
+  
+  - cookies：每個HTTP request都會送到伺服器端，拖慢載入速度和頻寬
+  
+  - sessionStorage、localStorage是HTML5新增的功能，儲存在本機
+  
+  - sessionStorage：生命週期僅存活到瀏覽器或頁面關閉
+  
+  - locationStorage：生命週期較長，要等到使用Javascript清空localStorage或清空cache才會消失
+
+- 描述下列之間的不同 `<script>`, `<script async>` & `<script defer>`
+  
+  - `<script src="demo.js"></script>`
+    
+    webpage render會停止，等到demo.js載入完畢才會繼續render
+    
+    `<script src="demo.js" async></script>`
+    
+    wepage render不會停止，demo.js在背景載入
+    
+    demo.js載入完畢，render停止，開始執行demo.js
+    
+    demo.js執行完畢，render繼續
+    
+    `<script src="demo.js" defer></script>`
+    
+    webpage render不會停止，demo.js在背景載入
+    
+    等到webpage載入完畢才會執行demo.js
+
+- 為什麼把 CSS `<link>` 放在 `<head></head>` 之間，與將 JS `<script>` 放在 `</body>` 之前是個較好的主意？有什麼例外情形嗎？
+
+- 什麼是漸進式呈現？
+  
+  - 以平行與排定優先順序的方式擷取與呈現頁面元件，來幫助提升頁面效能。如果您注意到社群頁面要花費很長的時間載入，您才能看見元件在螢幕上呈現，那麼漸進式呈現便能幫助改善您的體驗。
+
+- 有用過 HTML 樣板語言（template languages）嗎？
