@@ -1,0 +1,182 @@
+Paper Examination
+Write a HTML Form (<form>...</form>) with the following elements and properties.
+A Required Text name input with Text validation
+A Required Email input with Email validation
+A Submit Button which POSTs the form data to a page named “go2pay.php”
+
+
+<style>form input{margin-bottom: 10px;}</style>
+<form ction="/go2pay.php" method="post">
+           Name: <input type=”text” required><br>
+           Email: <input type=”email” required><br>
+           <button>submit</button>
+</form>
+ 
+
+CSS Box Model
+There is a single DIV content box in the document below.
+
+
+We are going to specify 300px width, 10px padding, 20px margin and a 10px solid gray border to the DIV.
+Please:
+Point out the padding, margin and border regions
+Write an executable css code in terms of the above spec. for the DIV.
+Extend the css code to horizontally center the DIV as short as possible.
+.content-box{border:10px solid gray;display: inline-flex;}
+.content{
+width: 300px;
+padding:10px;
+margin:20px;
+display:flex;
+align-items: center;
+justify-content: center;
+}
+<div class="content-box">
+           <div class="content">
+               Content Box
+           </div>
+       </div>
+
+CSS Selectors
+Please express the following selectors meaning (what kind of the HTML elements would be styled)
+#para1:hover { … }
+p.center { … }
+div p { … }
+div > p { … }
+div[class="text"]
+
+(1.ID par1 hover後的css變化
+(2.p class=”center”
+(3.<div><p></p></div> (div後面一層的p)
+Bootstrap
+How many columns that Bootstrap Grid system is based on?
+
+
+
+
+
+Write a snippet of the Responsive HTML to represent the Equal-width single-row Grid as below (assume Bootstrap 4 has included and ready to apply).
+c1
+c2
+c3
+c4
+c5
+
+
+
+
+
+Write a snippet of the Responsive HTML to represent the Equal-width Multi-row Grid as below (assume Bootstrap 4 has included is ready to apply).
+A
+B
+C
+D
+
+What is the difference between the equality operators == and ===?
+
+Brief the Closure
+What is a closure?
+Based on your experience, When did you use the closure to solve What problem?
+
+
+
+
+
+
+
+
+Write the following console log output values.
+
+
+var f = 
+(function fun() {
+    var x = 10;
+    
+    function ff(y) {        
+        return x + y;
+    }
+    
+    x--;
+    return ff;
+})();
+
+console.log( f(100) );
+console.log( f(200) );
+
+
+
+var f = 
+(function fun() {
+    var x = 10;
+    
+    function ff(y) {
+        x--;
+        return x + y;
+    }
+        
+    return ff;
+})();
+
+console.log( f(100) );
+console.log( f(200) );
+
+
+Write the following console log output values
+
+
+var x = 3;
+var foo = {
+    x: 2,
+    baz: {
+        x: 1,
+        bar: function() {
+            return this.x;
+        }
+    }
+}
+
+var go = foo.baz.bar;
+
+console.log(go());
+console.log(foo.baz.bar());
+
+
+
+var id = 1;
+
+function customer() {
+    console.log(this.id);
+}
+
+customer();                //-- console output1
+var c = new customer();    //-- console output2
+
+Asynchronous programming
+Write a snippet code to display an alert dialog box, i.e. alert(‘after 1 sec’), after 1 second of the program execution, and then wait 5 seconds to show the other alert, i.e. alert(‘5 secs passed’), once the previous alert box has been closed.
+Use Callback to complete the scenario
+Use Promise to complete the scenario
+User Await to complete the scenario
+
+Based on your experience, please express the approaches of the speed-up page loading (especially on image)?
+
+What is a cross-site scripting  attack (XSS) and how do you prevent it?
+
+
+
+
+40min 
+
+Coding Examination
+We are going to have a campaign for the new lighting product marketing investigation.
+
+We need a landing page with:
+2 Lighting Categories
+An About Section
+A Custom Information Form
+The page should look like the hyperlink below. https://hooga5.wixsite.com/mysite-2.
+
+You could find the material of the text, images and icons HERE. 
+
+Ok, Lets get hands dirty with your familiar/favorite tool (IDE) to work it out as awesome as possible.  
+
+
