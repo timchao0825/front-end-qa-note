@@ -58,3 +58,25 @@
     Ex. 如果我的網站([http://exampleMe.com](http://exampleMe.com)) 上有個按鈕，是刪除文章用，點擊時送出這樣的請求 `GET /delete/article/:article_id`。
     
     那麼如果在別的網站上 ([http://exampleB.com](http://exampleB.com)) 有個按鈕，`href` 為 `http://exampleMe.com/delete/article/:article_id`，這樣的話，只要能取得瀏覽器內的cookie或session資訊，就能在別的網站偽造同樣的請求，刪除我自己網站上的文章。
+
+- 有使用過HTTP/2的經驗嗎？
+  
+  - 只需要單一網路連線（Single TCP connection），就可以連接網站伺服器，下載所有需要的資源。大大節省 HTTP/1.1 需要一直建立多個網路連線時的啟動時間浪費。
+  
+  - 連線多工（Multiplexing），在單一網路連線上，就可以同時傳輸多個 HTTP Request 和 Response，併發請求 ，CSS/JS/Images 等等資源。它的原理是將 Requests/Responses 都拆碎成小 frames 進行傳輸，而這些 frames 是可以交錯的，因此檔案再多也不怕，不會發生佔用網路連線（TCP connection）的情況。這就是為什麼在圖檔多的情況下，HTTP/2 特別有優勢。
+  
+  - 優先權設計([Prioritization](https://nghttp2.org/blog/2014/04/27/how-dependency-based-prioritization-works/))，伺服器可以決定例如 CSS 或 JavaScript 檔案，哪些要優先傳送。
+  
+  - Header 壓縮，在 HTTP/1.1 的 Headers 其實是沒有壓縮的，大小佔了約 200 bytes 到 2KB 不等，而且同一瀏覽器的每個 Requests 其實絕大部份的 Headers 都是重複的。HTTP/2 用了 [HPACK](https://http2.github.io/http2-spec/compression.html) 壓縮技術，大大減少每次都要重複傳輸一樣的 Headers。
+  
+  - Binary 二進位的封包結構設計，對伺服器和瀏覽器來說，可以更快的解析這些資料。冷知識：在 HTTP/1.1 定義了[四種解析訊息的方式](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.4)，在 HTTP/2 只需要一種。
+  
+  - 伺服器主動推送資源（Server Push），允許伺服器除了 HTML 之外，連同需要的 CSS/JavaScript/Images 檔案，主動推到瀏覽器的快取之中。不過，這個功能比較有爭議，一來他需要 Web 開發者額外描述有哪些檔案需要隨著 HTML 一起推送給瀏覽器，不是 Web 伺服器升級 HTTP/2 就自動會有。二來它不管瀏覽器是不是已經有快取這個資源，都會推送而造成頻寬浪費。因此實務上筆者認為可以改用瀏覽器的 [Prefetch](https://css-tricks.com/prefetching-preloading-prebrowsing/) 功能，讓客戶端的瀏覽器自己處理即可。
+  
+  - 合併圖片([Image Sprites](https://css-tricks.com/css-sprites/))，為了減少瀏覽器發送 Requests 的數量，就把很多小圖(例如Icon)合併成一張大圖下載，然後透過 CSS 樣式去切出其中一個小圖。這一招用起來其實很麻煩，因為每次新增小圖或修改，整張大圖都要重新產生過。
+  
+  - 合併 CSS 和 JavaScript 檔案，也是為了減少瀏覽器發送 Requests 的數量。但是開發的時候一定會拆成不同檔案才比較好維護，而最後佈署到伺服器時，需要額外去進行把檔案合併的動作。
+  
+  - 內插 CSS、JavaScript 或圖片，也是為了減少瀏覽器發送 Requests 的數量，就把原本應該獨立的檔案，直接內插到 HTML 裡面。圖片會用 Base64 編碼成純文字後置入。但這招會破壞瀏覽器快取機制，本來是可以單獨快取這些靜態資源的，內插後反而沒有快取了，而且圖片實際大小會變大浪費頻寬。
+  
+  - Domain 切分（Domain Sharding），瀏覽器針對同一個網址只能開六個網路連線，為了突破這個限制，網站者可能會拆多個子網域，用不同網址來下載圖片。另外也因為拆分不同 Domain 的關係，可以讓瀏覽器的 Cookie 不會送到這些次要網域，減少一點頻寬浪費。
