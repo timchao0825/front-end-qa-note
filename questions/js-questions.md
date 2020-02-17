@@ -3,12 +3,18 @@
 - 描述 event delegation。
 
 - 描述 “hoisting”
+
+- 談談Scope Chain
   
-  - 
+  - 簡單的來說，Scope Chain就是在找變項的過程中，從內層找到外層，直到最外面的global environment的這條鍊，就叫做Scope Chain。
+  
+  - https://pjchender.blogspot.com/2015/12/javascriptscope-chainouter-environment.html
 
 - 什麼是 closure, 如何/為什麼使用?
   
   - 閉包是函式記得並存取語彙範疇的能力，可說是指向特定範疇的參考，因此當函式是在其宣告的語彙範疇之外執行時也能正常運作。
+  
+  - https://pjchender.blogspot.com/2017/05/javascript-closure.html
   
   - ```
     function foo() {
@@ -52,7 +58,3 @@
     Ex. 如果我的網站([http://exampleMe.com](http://exampleMe.com)) 上有個按鈕，是刪除文章用，點擊時送出這樣的請求 `GET /delete/article/:article_id`。
     
     那麼如果在別的網站上 ([http://exampleB.com](http://exampleB.com)) 有個按鈕，`href` 為 `http://exampleMe.com/delete/article/:article_id`，這樣的話，只要能取得瀏覽器內的cookie或session資訊，就能在別的網站偽造同樣的請求，刪除我自己網站上的文章。
-  
-  
-
-
