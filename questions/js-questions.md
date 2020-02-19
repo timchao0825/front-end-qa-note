@@ -3,7 +3,6 @@
 - 描述”event delegation“
 
 - 描述 “hoisting”
-  
 
 - 描述”immutable“
 
@@ -91,9 +90,13 @@
   - 非同步Asynchronous 簡意：同時執行
   
   - simple callback programing
+    
+    - https://codepen.io/Tim-chao/pen/BaNLNwQ
   
   - simple Promise programing
+    
+    - https://codepen.io/Tim-chao/pen/GRJjpqE
   
   - simple Await programing
-
-
+    
+    - https://codepen.io/Tim-chao/pen/VwLKvGW
