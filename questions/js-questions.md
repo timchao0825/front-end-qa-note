@@ -1,10 +1,13 @@
 # JavaScript Questions
 
-- 描述 event delegation。
+- 描述”event delegation“
 
 - 描述 “hoisting”
+  
 
-- 談談Scope Chain
+- 描述”immutable“
+
+- 談談”Scope Chain“
   
   - 簡單的來說，Scope Chain就是在找變項的過程中，從內層找到外層，直到最外面的global environment的這條鍊，就叫做Scope Chain。
   
@@ -80,3 +83,17 @@
   - 內插 CSS、JavaScript 或圖片，也是為了減少瀏覽器發送 Requests 的數量，就把原本應該獨立的檔案，直接內插到 HTML 裡面。圖片會用 Base64 編碼成純文字後置入。但這招會破壞瀏覽器快取機制，本來是可以單獨快取這些靜態資源的，內插後反而沒有快取了，而且圖片實際大小會變大浪費頻寬。
   
   - Domain 切分（Domain Sharding），瀏覽器針對同一個網址只能開六個網路連線，為了突破這個限制，網站者可能會拆多個子網域，用不同網址來下載圖片。另外也因為拆分不同 Domain 的關係，可以讓瀏覽器的 Cookie 不會送到這些次要網域，減少一點頻寬浪費。
+
+- Asynchronous Programming
+  
+  - 同步Synchronous 簡意：一次執行一行程式
+  
+  - 非同步Asynchronous 簡意：同時執行
+  
+  - simple callback programing
+  
+  - simple Promise programing
+  
+  - simple Await programing
+
+
