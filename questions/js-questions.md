@@ -100,3 +100,13 @@
   - simple Await programing
     
     - https://codepen.io/Tim-chao/pen/VwLKvGW
+
+- Naming convention
+  
+  - CamelCase(駝峰式命名法, camelCase) , ex: schoolClass
+  
+  - Pascal Case(PascalCase), ex:SchoolClass
+  
+  - Snake Case(Snake_Case), ex:school_Class
+  
+  - Kebeb Case(Kebeb-Case), ex:school-class
