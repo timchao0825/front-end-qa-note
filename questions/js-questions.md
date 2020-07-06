@@ -1,6 +1,31 @@
 # JavaScript Questions
 
+- 描述”Event Bubbling“
+  
+  - 事件冒泡
+  
+  - 當某個事件發生在某個DOM element上（如：點擊），這個事件會觸發DOM elemtn的event handler，接下來會再觸發他的parent的event handler，以及parent的parent的event handler…直到最上層。
+
+- 描述”Event Capturing“
+  
+  - 事件捕獲
+  
+  - `e.stopPropagation`跟`e.preventDefault`的差別，前者我們剛剛已經說明了，就是取消事件繼續往下傳遞，而後者則是取消瀏覽器的預設行為。
+  
+  - 當事件傳遞到點擊的真正對象，也就是 e.target 的時候，無論你使用`addEventListener`的第三個參數是`true`還是`false`，這邊的`e.eventPhase`都會變成`AT_TARGET`。
+    
+    既然這邊已經變成`AT_TARGET`，自然就沒有什麼捕獲跟冒泡之分，所以執行順序就會根據你`addEventListener`的順序而定，先添加的先執行，後添加的後執行。
+    
+    所以，這就是為什麼我們上面把捕獲跟冒泡的順序換了以後，會先出現`list_item_link bubbling`的原因。
+    
+    1. 先捕獲，再冒泡
+    2. 當事件傳到 target 本身，沒有分捕獲跟冒泡
+
 - 描述”event delegation“
+  
+  - 事件代理
+  
+  - 一個 ul，底下 1000 個 li，如果你幫每一個 li 都加上一個 eventListener，你就新建了 1000 個 function，任何點擊 li 的事件其實都會傳到 ul 身上，因此我們可以在 ul 身上掛一個 listener 就好
 
 - 描述 “hoisting”
 
