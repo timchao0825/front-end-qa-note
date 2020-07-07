@@ -2,7 +2,13 @@
 
 - 軟體開發四個階段
   
-  分析、規劃、實作、驗證
+  分析 analysis
+  
+  規劃 planning
+  
+  實作  Implement
+  
+  驗證  verification
 
 - 寫程式的哪部份最讓你感到很興奮或是有興趣？
 

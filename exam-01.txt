@@ -92,7 +92,7 @@ var f =
 (function fun() {
     var x = 10;
     
-    function ff(y) {        
+    function ff(y) {
         return x + y;
     }
     
