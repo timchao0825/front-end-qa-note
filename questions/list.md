@@ -11,6 +11,7 @@
   - repository (資料庫)、commit (提交)、staged (暫存區)
   - 執行 fetch，可以取得遠端數據庫的最新歷史記錄
 - npm、Node.js 與 JavaScript 程式基礎
+  - 挑戰題目
 - 單元測試 Unit Testing 與 Jest
 - 網路基礎概念
 - HTML 與 CSS
