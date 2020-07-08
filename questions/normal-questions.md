@@ -106,3 +106,37 @@
 - CORS 是什麼，它解決了什麼問題？
   
   https://blog.techbridge.cc/2018/08/18/cors-issue/
+
+- CSRF Cross Site Request Forgery (跨站請求偽造)
+  
+  - 或稱為 one-click attack 或者 session riding
+  
+  - 攻擊手法：小黑是一個邪惡的壞蛋，想要讓小明在不知情的情況下就把自己的文章刪掉，該怎麼做呢？
+    
+    他知道小明很喜歡心理測驗，於是就做了一個心理測驗網站，並且發給小明。但這個心理測驗網站跟其他網站不同的點在於，「開始測驗」的按鈕長得像這樣：
+    
+    ```html
+    <a href='https://small-min.blog.com/delete?id=3'>開始測驗</a>
+    ```
+    
+    小明收到網頁之後很開心，就點擊「開始測驗」。點擊之後瀏覽器就會發送一個 GET 請求給`https://small-min.blog.com/delete?id=3`，並且因為瀏覽器的運行機制，一併把 `small-min.blog.com` 的 cookie 都一起帶上去。
+    
+    Server 端收到之後檢查了一下 session，發現是小明，而且這篇文章也真的是小明發的，於是就把這篇文章給刪除了。
+    
+    這就是 CSRF，你現在明明在心理測驗網站，假設是 `https://test.com` 好了，但是卻在不知情的狀況下刪除了 `https://small-min.blog.com` 的文章，你說這可不可怕？超可怕！
+    
+    這也是為什麼 CSRF 又稱作 one-click attack 的緣故，你只要點一下就中招了。
+  
+  - 舉的例子是刪除文章，這你可能覺得沒什麼，那如果是銀行轉帳呢？攻擊者只要在自己的網頁上寫下轉帳給自己帳號的 code，再把這個網頁散佈出去就好，就可以收到一大堆錢。
+  
+  - 解決方法：Server 的防禦
+    
+    - 檢查 Referer
+    
+    - 加上圖形驗證碼、簡訊驗證碼等等
+    
+    - 加上 CSRF token
+    
+    - Double Submit Cookie
+
+
