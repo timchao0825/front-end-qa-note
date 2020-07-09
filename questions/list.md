@@ -6,7 +6,7 @@
   - mv 移動檔案
   - touch index.html (index.html 這個檔案本來不存在，`touch` 指令會建立一個名為 index.html 的空白檔案)
   - cp index.html about.html (把檔案 index.html 更名成 info.html)
-  -  rm index.html (刪除檔案 index.html)
+  - rm index.html (刪除檔案 index.html)
 - Git 的使用
   - repository (資料庫)、commit (提交)、staged (暫存區)
   - 執行 fetch，可以取得遠端數據庫的最新歷史記錄

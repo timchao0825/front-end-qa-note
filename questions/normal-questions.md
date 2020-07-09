@@ -138,5 +138,3 @@
     - 加上 CSRF token
     
     - Double Submit Cookie
-
-
