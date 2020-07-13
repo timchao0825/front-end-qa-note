@@ -130,9 +130,9 @@ function getArticlePromise(id){
 // }); // 2秒後才會執行
 
 // ----- async function
-async function run(){
-  let articles = await getArticleListPromise();
-  let article = await getArticlePromise(articles.id);
-  console.log(article);
-}
-run();
+// async function run(){
+//   let articles = await getArticleListPromise();
+//   let article = await getArticlePromise(articles.id);
+//   console.log(article);
+// }
+// run();

@@ -135,3 +135,47 @@
   - Snake Case(Snake_Case), ex:school_Class
   
   - Kebeb Case(Kebeb-Case), ex:school-class
+
+- API 與 JSONP
+  
+  - 「Application Programming Interface」，中文翻作應用程式介面
+  
+  - XMLHttpRequest（XHR）物件的方式來存取伺服器端的資料，可以讓你直接經由指定的 URL 擷取資料卻不用刷新整個網頁
+  
+  - 瀏覽器因為安全性的考量，[同源政策](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Same_origin_policy_for_JavaScript)，Same-origin policy
+  
+  - CORS 全名為 Cross-Origin Resource Sharing，跨來源資源共享
+    
+    - 這套規範跟你說，如果你想開啟跨來源 HTTP 請求的話，Server 必須在 Response 的 Header 裡面加上`Access-Control-Allow-Origin`，當瀏覽器收到 Response 之後，會先檢查`Access-Control-Allow-Origin`裡面的內容，如果裡面有包含現在這個發起 Request 的 Origin 的話，就會允許通過，讓程式順利接收到 Response。
+  
+  - JSONP
+    
+    - 其實有些東西是不受同源政策限制的，例如說`<script>`這個 Tag，我們不是常常引用 CDN 或是 Google Analytics 之類的第三方套件嗎？網址都是其他 Domain 的，但是卻能正常載入
+    
+    - JSONP 就是利用`<script>`的這個特性來達成跨來源請求的
+    
+    - 利用 JSONP，也可以存取跨來源的資料。但 JSONP 的缺點就是你要帶的那些參數永遠都只能用附加在網址上的方式（GET）帶過去，沒辦法用 POST。
+      
+      如果能用 CORS 的話，還是應該優先考慮 CORS。
+    
+    - 簡易版本 實作jsonp範例:
+      
+      ```html
+      <script>
+        var response = {
+          data: 'test'
+        };
+      </script>
+      <script>
+        console.log(response);
+      </script>
+      ```
+    
+    - Api 範例 jsonp 
+      
+      ```html
+      <script src="https://another-origin.com/api/games"></script>
+      <script>
+        console.log(response);
+      </script>
+      ```
