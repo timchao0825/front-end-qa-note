@@ -79,6 +79,16 @@
   - 優點：無需考慮瀏覽器的相容性問題，例如你可以在CSS中使用變數、簡單的邏輯程式、函式等等在程式語言中的一些基本特性，可以讓你的CSS更加簡潔、適應性更強、可讀性更佳，更易於程式碼的維護等諸多好處。
 
 - 瀏覽器如何按照 CSS selector 找到對應的 element
+  
+  - 大於(>)就是選取底下**直接**的子元素
+    
+    - .box p會影響到box這個div底下所有的p元素，而因為「>」只會影響到直接的子元素
+  
+  - /deep/ 影響到box這個div底下所有的p元素
+  
+  - 加號符號(+)則是會影響到**後方同層級**的**第一個**元素
+  
+  - 取代符號(~)是影響到**後方同層級**的**全部**元素
 
 - relative、fixed、absolute 和 static 元件差異性
   
@@ -93,3 +103,37 @@
 - responsive design 與 adaptive design 有何不同？
   
   - RWD主要是依靠高彈性的佈局策略，使同一個頁面能適應不同設備的運行環境。AWD則是通過辨識客戶設備，提供針對該設備的不同版本的頁面內容和資源。
+
+- css specificity
+  
+  - ** `0-0-0-0`
+  
+  - div, p, ul, ol, li, em, header, footer, article.... `0-0-0-1`
+  
+  - class `0-0-1-0`
+  
+  - id `0-1-0-0`
+  
+  - inline style ex: div style="..."  `1-0-0-0` (最高)
+    
+    其他項目
+  
+  - psuedo-class(偽類) `0-0-1-0`
+  
+  - !important `1-0-0-0-0`
+  
+  - ### `!important > inline style > ID > Class/psuedo-class(偽類)/attribute（屬性選擇器） > Element`
+
+- 偽元素和偽類
+  
+  - 偽類 (Pseudo-classes)
+    
+    - :active :hover :focus
+      
+      ![1-M86d0RMEQfc-S59SCvE-og.png](/Users/mac/Desktop/1-M86d0RMEQfc-S59SCvE-og.png)
+      
+      
+  
+  - 偽元素 (Pseudo-elements)
+    
+    - ::before、 ::after
