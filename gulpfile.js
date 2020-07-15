@@ -21,7 +21,6 @@ const rename = require('gulp-rename'), // 檔案重新命名
       plumber = require('gulp-plumber'), // [例外處理] gulp發生編譯錯誤後仍然可以繼續執行，不會強迫中斷
       changed = require('gulp-changed'), // [例外處理] 找出哪些檔是被修改過的
       cached = require('gulp-cached'), // [快取機制] 只傳遞修改過的文件
-      runSequence = require('run-sequence'),
       // extender = require('gulp-html-extend'), // [HTML] html 編譯 （HTML模板）
       pug = require('gulp-pug'), // [HTML / PUG] 編譯 PUG（PUG模板）
       sourcemaps = require('gulp-sourcemaps'), // [檔案追蹤] 來源編譯
