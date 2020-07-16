@@ -6,8 +6,10 @@ block style
 block script
   //- script(type="text/javascript" src="js/index.min.js")
   //- script(type="text/javascript" src="js/test-class.min.js")
-  script(type="text/javascript" src="js/promise.min.js")
+  //- script(type="text/javascript" src="js/promise.min.js")
+  script(type="text/javascript" src="js/higher-order-function.min.js")
   script(type="text/javascript").
+    
 block content
   .main-wrap
     // p.text-center pug test
@@ -21,4 +23,8 @@ block content
     //- div#first 111
     //-   div#second 222
     //-     div#third 333
+    .flex-box
+      .box.red
+      .box.blue
+      .box.green
 

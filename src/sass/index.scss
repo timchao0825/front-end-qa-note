@@ -41,6 +41,32 @@ body{
 #third{
   border:1px solid green;
 }
+.flex-box{
+  margin:50px;
+  width: 1000px;
+  // border:2px solid red;
+  display: flex;
+  .box{
+    // width: 50px;
+    height: 100px;
+    width: 500px;
+  }
+  .red{
+    // flex-grow: 2;
+    flex-shrink: 1;
+    background: red;
+  }
+  .blue{
+    // flex-grow: 1;
+    flex-shrink: 2;
+    background: blue;
+  }
+  .green{
+    // flex-grow: 1;
+    flex-shrink: 3;
+    background:green;
+  }
+}
 // --------------------------------------------------------
 /* Animate Style*/
 // --------------------------------------------------------

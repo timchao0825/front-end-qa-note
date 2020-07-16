@@ -129,11 +129,28 @@
   - 偽類 (Pseudo-classes)
     
     - :active :hover :focus
-      
-      ![1-M86d0RMEQfc-S59SCvE-og.png](/Users/mac/Desktop/1-M86d0RMEQfc-S59SCvE-og.png)
-      
-      
+
+- 偽元素 (Pseudo-elements)
   
-  - 偽元素 (Pseudo-elements)
+  - ::before、 ::after
+
+- flex-grow / flex-shrink / flex-basis
+  
+  - flex-grow (依照設定比例分配剩餘空間)
     
-    - ::before、 ::after
+    - container 寬度爲 1000px，每個 box 寬度爲 100px。粉色綠色藍色方塊皆爲 100px，剩餘區域爲 700px，
+      
+      - 粉色盒子 `flex-grow:1;` ，表示剩餘空間 700px，分爲 1 份，皆分配給粉色盒子，則粉色盒子寬度爲 800px
+      
+      - 綠色盒子也設定 `flex-grow:1;` ，表示剩餘空間 700px，分爲 2 份，分配給粉色盒子及綠色盒子各一份，各分 350px，粉色盒子及綠色盒子寬度皆爲 450px
+  
+  - flex-shrink (flex-shrink 是 flex-grow 的反向，有剩餘空間，就表示也有不夠空間的時候。flex-shrink 表示空間不夠時的壓縮比例)
+    
+    - 三個小方塊的寬度本來皆為 200px 且左右各有 10px 的 margin，因此總寬 `200px * 3 + 10px * 2 * 3` = 660px 超過 container 的 500px，因此紅藍綠三小方塊依 flex-shrink 的設定，分別應縮小 1、2、3 倍。
+      
+      - 超過的寬度為 660px - 500px = 160px
+      - 紅色小方塊的新的寬度為 `200px - (1 / (1 + 2 + 3) * 160px)` = 173.3px
+      - 藍色小方塊的新的寬度為 `200px - (2 / (1 + 2 + 3) * 160px)` = 146.6px
+      - 綠色小方塊的新的寬度為 `200px - (3 / (1 + 2 + 3) * 160px)` = 119px
+
+

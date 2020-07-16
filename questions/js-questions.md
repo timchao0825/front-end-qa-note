@@ -179,3 +179,15 @@
         console.log(response);
       </script>
       ```
+
+- JS higher order function
+
+-  `apply`、`bind`、`call` 是什麼？
+  
+  - apply
+  
+  - 
+  
+  - bind
+  
+  - call

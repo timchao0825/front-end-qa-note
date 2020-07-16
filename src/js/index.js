@@ -3,10 +3,6 @@ $(document).ready(function(){
 // con===============================================================================================
 console.log('index js. here');
 
-
-
-
-
 // setTimeout(function(){ console.log('index es5 js.'); }, 3000);
 // $('#first').on('click',function(){
 //   console.log('first click');
