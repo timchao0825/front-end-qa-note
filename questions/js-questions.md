@@ -63,6 +63,13 @@
   
   - 兩個等於（==）會對被判別的變數做**轉換型別的動作（coercion又稱為implicit type conversion）**。
 
+- 三元運算式
+  
+  - ```
+    console.log(9 << 2) // 36 (二進制計算)
+    console.log(9 >> 2) // 2
+    ```
+
 - CORS/XSS/CSRF筆記
   
   - **C** ross **O** rigin **R** equest **S** haring （跨來源資源請求）
@@ -182,11 +189,9 @@
 
 - JS higher order function
 
--  `apply`、`bind`、`call` 是什麼？
+- `apply`、`bind`、`call` 是什麼？
   
   - apply
-  
-  - 
   
   - bind
   

@@ -50,3 +50,8 @@ waypts_array[i][2] = "red"; // waypts_array[0][2] = "red"
 waypts_array[i] = waypts_array[i].slice(1, waypts_array[i].length - 1);// waypts_array[0] = waypts_array[i].slice(1 , 2)
 
 console.log(waypts_array[i]); // is
+
+
+//32 16 8 4 2 1
+//      1 0 0 1
+//1  0  0 1 0 0  // 36

@@ -106,6 +106,10 @@
 - CORS 是什麼，它解決了什麼問題？
   
   https://blog.techbridge.cc/2018/08/18/cors-issue/
+  
+  - CORS 全名為 Cross-Origin Resource Sharing，跨來源資源共享
+    
+    - JavaScript 中透過 fetch 或 XMLHttpRequest 存取資源時，需要遵守 CORS (Cross-Origin Resource Sharing，跨來源資源共用)。瀏覽器在發送請求之前會先發送 preflight request (預檢請求)，確認伺服器端設定正確的 `Access-Control-Allow-Methods`、`Access-Control-Allow-Headers` 及 `Access-Control-Allow-Origin` 等 header，才會實際發送請求。使用 cookie 的情況下還需額外設定 `Access-Control-Allow-Credentials` header
 
 - CSRF Cross Site Request Forgery (跨站請求偽造)
   

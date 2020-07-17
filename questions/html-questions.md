@@ -109,3 +109,60 @@
   - 以平行與排定優先順序的方式擷取與呈現頁面元件，來幫助提升頁面效能。如果您注意到社群頁面要花費很長的時間載入，您才能看見元件在螢幕上呈現，那麼漸進式呈現便能幫助改善您的體驗。
 
 - 有用過 HTML 樣板語言（template languages）嗎？
+
+- HTTP 協定中，有哪些 request method ?
+  
+  - **GET**
+    
+    **GET is used to request data from a specified 
+    resource.**
+    
+    **GET is one of the most common HTTP methods.**
+    
+    Note that the query string (name/value pairs) is sent in the URL of 
+    a GET request:
+    
+    /test/demo_form.php?name1=value1&name2=value2
+    
+    **Some other notes on GET requests:**
+    
+    - GET requests can be cached
+    - GET requests remain in the browser history
+    - GET requests can be bookmarked
+    - GET requests should never be used when dealing with sensitive data
+    - GET requests have length restrictions
+    - GET requests are only used to request data (not modify)
+  
+  - **POST**
+    
+    **POST is used to send data to a server to create/update a resource.**
+    
+    The data sent to the server with POST is stored in the request body of the 
+    HTTP request:
+    
+    POST /test/demo_form.php HTTP/1.1  
+    
+    Host: w3schools.com  
+    
+    name1=value1&name2=value2
+    
+    **POST is one of the most common HTTP methods.**
+    
+    **Some other notes on POST requests:**
+    
+    - POST requests are never cached
+    - POST requests do not remain in the browser history
+    - POST requests cannot be bookmarked
+    - POST requests have no restrictions on data length
+  
+  - **PUT**
+  
+  - **HEAD**
+  
+  - **DELETE**
+  
+  - **PATCH**
+  
+  - **OPTIONS**
+
+
