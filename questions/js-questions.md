@@ -27,6 +27,10 @@
   
   - 一個 ul，底下 1000 個 li，如果你幫每一個 li 都加上一個 eventListener，你就新建了 1000 個 function，任何點擊 li 的事件其實都會傳到 ul 身上，因此我們可以在 ul 身上掛一個 listener 就好
 
+- 描述"this"
+  
+  - this js training (training file)
+
 - 描述 “hoisting”
 
 - 描述”immutable“
@@ -187,7 +191,7 @@
       </script>
       ```
 
-- JS higher order function
+- JS higher order function (高階函式)
 
 - `apply`、`bind`、`call` 是什麼？
   

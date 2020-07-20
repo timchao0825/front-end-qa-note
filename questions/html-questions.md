@@ -181,17 +181,13 @@
     
     **The OPTIONS method describes the communication options for the target 
     resource.**
-    
-    
-  
-  |         | Safe? | Idempotent? |
-  | ------- |:-----:|:-----------:|
-  | GET     | Y     | Y           |
-  | POST    | N     | N           |
-  | PATCH   | N     | N           |
-  | PUT     | N     | Y           |
-  | DELETE  | N     | Y           |
-  | HEAD    | Y     | Y           |
-  | OPTIONS | Y     | Y           |
-  
-  
+
+|         | Safe? | Idempotent? |
+| ------- |:-----:|:-----------:|
+| GET     | Y     | Y           |
+| POST    | N     | N           |
+| PATCH   | N     | N           |
+| PUT     | N     | Y           |
+| DELETE  | N     | Y           |
+| HEAD    | Y     | Y           |
+| OPTIONS | Y     | Y           |

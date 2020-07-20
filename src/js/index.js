@@ -1,7 +1,7 @@
 // es5 area
 $(document).ready(function(){
 // con===============================================================================================
-console.log('index js. here');
+console.log('index js. import');
 
 // setTimeout(function(){ console.log('index es5 js.'); }, 3000);
 // $('#first').on('click',function(){

@@ -104,6 +104,14 @@
   
   - RWD主要是依靠高彈性的佈局策略，使同一個頁面能適應不同設備的運行環境。AWD則是通過辨識客戶設備，提供針對該設備的不同版本的頁面內容和資源。
 
+- 你曾經使用過 retina graphics？如果有，是在什麼時機以及用了什麼技術？
+  
+  - media query *(-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi)*
+  
+  - media query *(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)*
+  
+  - media query *(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)*
+
 - css specificity
   
   - ** `0-0-0-0`
