@@ -1,4 +1,4 @@
 {
   "presets": ["@babel/preset-env"],
-  // "sourceType": "script" // 取消use strict 模式
+  "sourceType": "script" // 取消use strict 模式
 }

@@ -98,25 +98,25 @@ console.log('prototype js import')
 
 // prototype 原型鏈 練習3
 // =============================
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
-}
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+// }
   
-Person.prototype.log = function () {
-  console.log(this.name + ', age:' + this.age);
-}
+// Person.prototype.log = function () {
+//   console.log(this.name + ', age:' + this.age);
+// }
   
-var nick = new Person('nick', 18);
+// var nick = new Person('nick', 18);
   
-// 這個剛講過了，nick.__proto__ 會指向 Person.prototype
-console.log(nick.__proto__ === Person.prototype) // true
+// // 這個剛講過了，nick.__proto__ 會指向 Person.prototype
+// console.log(nick.__proto__ === Person.prototype) // true
   
-// 那 Person.prototype.__proto__ 會指向誰呢？會指向 Object.prototype
-console.log(Person.prototype.__proto__ === Object.prototype) // true
+// // 那 Person.prototype.__proto__ 會指向誰呢？會指向 Object.prototype
+// console.log(Person.prototype.__proto__ === Object.prototype) // true
   
-// 那 Object.prototype.__proto__ 又會指向誰呢？會指向 null，這就是原型鍊的頂端了
-console.log(Object.prototype.__proto__) // null
+// // 那 Object.prototype.__proto__ 又會指向誰呢？會指向 null，這就是原型鍊的頂端了
+// console.log(Object.prototype.__proto__) // null
 
 
 // hasOwnProperty

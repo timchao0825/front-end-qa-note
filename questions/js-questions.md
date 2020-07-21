@@ -32,6 +32,17 @@
   - this js training (training file)
 
 - 描述 “hoisting”
+  
+  - 編譯器（compiler）會先由上到下逐行將程式碼轉為電腦可懂的命令，然後再執行編譯後的指令。在這個編譯的階段，編譯器找出所有的變數並繫結所屬範疇，但不賦值，所以此刻變數所帶的值是
+     undefined；而在執行階段，JavaScript 引擎才會處理給值的事情。
+    
+    我們可以把這個過程想像成是將這些變數「提升」到程式碼的最頂端
+    
+    1. 變數宣告跟函式宣告都會提升
+    2. 只有宣告會提升，賦值不會提升
+    3. 別忘了函式裡面還有傳進來的參數
+  
+  - Great POST from Huli:https://blog.techbridge.cc/2018/11/10/javascript-hoisting/
 
 - 描述”immutable“
 
