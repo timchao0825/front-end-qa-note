@@ -8,10 +8,10 @@ console.log('prototype js import')
 // }
 // var dogA = new DOG('大毛');
 // var dogB = new DOG('二毛');
-// // console.log(dogA.name); // 大毛
-// // console.log(dogB.name); // 大毛
-// // console.log(dogA.species); // 犬科
-// // console.log(dogB.species); // 犬科
+// console.log(dogA.name); // 大毛
+// console.log(dogB.name); // 大毛
+// console.log(dogA.species); // 犬科
+// console.log(dogB.species); // 犬科
 // dogA.species = "貓科";
 // console.log(dogA.species); // 貓科
 // console.log(dogB.species); // 犬科
@@ -21,7 +21,7 @@ console.log('prototype js import')
 // function DOG(name){
 //   this.name = name;
 // } 
-// 现在，species属性放在prototype对象里，是两个实例对象共享的。只要修改了prototype对象，就会同时影响到两个实例对象
+// 现在，species屬性放在prototype對象裡，是兩個實例對象共享的。只要修改了prototype對象，就會同時影響到兩個實例對象
 // DOG.prototype = { species : '犬科' };
 // var dogA = new DOG('大毛');
 // var dogB = new DOG('二毛');
@@ -153,3 +153,45 @@ console.log('prototype js import')
 // console.log(nick instanceof Person); // true
 // console.log(nick instanceof Object); // true
 // console.log(nick instanceof Array); // false
+
+
+
+// 繼承
+// =============================
+function Animal(name, gender, age) {
+  this.name = name;
+  this.gender = gender;
+  this.age = age;
+  this.a = 2;
+}
+Animal.prototype.speak = function() {
+  // console.log('some sounds');
+  console.log(this.name)
+};
+Animal.prototype.a = 3;
+Animal.prototype.b = 4;
+Animal.prototype.test = function(){
+  console.log('animal test func')
+};
+// function Dog(name, gender, age) {
+//   this.name = name;
+//   this.gender = gender;
+//   this.age = age;
+// }
+// Dog.prototype = Object.create(Animal.prototype);
+// Dog.prototype.speak = function() {
+//   console.log('Bow-wow');
+// };
+// Dog.prototype.move = function() {
+//   console.log('walk');
+// };
+
+const animal1 = new Animal('Browny', 'male', 5)
+// const dog1 = new Dog('Blacky', 'male', 3)
+// animal1.speak();
+// dog1.speak();
+console.log(animal1);
+// console.log('a ==> ',Object.values(animal1));
+console.log('a ==> ',animal1.a);
+console.log('b ==> ',animal1.b);
+animal1.test();

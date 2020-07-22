@@ -54,16 +54,17 @@ console.log('index js. import');
 // hoisting
 // console.log(a);
 // var a = 12;
-var foo = "bar"
-var a = 1
-function bar() {
-    foo = "inside bar"
-    var a = 2
-    c = 3
-    console.log(c)
-    console.log(d)
-}
-bar()
+// var foo = "bar"
+// var a = 1
+// function bar() {
+//     foo = "inside bar"
+//     var a = 2
+//     c = 3
+//     console.log(c)
+//     console.log(d)
+// }
+// bar()
+
 
 // closure
 // for (var i = 1; i <= 5; i++) {
