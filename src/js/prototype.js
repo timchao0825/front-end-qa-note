@@ -173,25 +173,37 @@ Animal.prototype.b = 4;
 Animal.prototype.test = function(){
   console.log('animal test func')
 };
-// function Dog(name, gender, age) {
-//   this.name = name;
-//   this.gender = gender;
-//   this.age = age;
-// }
-// Dog.prototype = Object.create(Animal.prototype);
-// Dog.prototype.speak = function() {
-//   console.log('Bow-wow');
-// };
-// Dog.prototype.move = function() {
-//   console.log('walk');
-// };
+function Dog(name, gender, age) {
+  this.name = name;
+  this.gender = gender;
+  this.age = age;
+}
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.speak = function() {
+  console.log('Bow-wow');
+};
+Dog.prototype.move = function() {
+  console.log('walk');
+};
 
 const animal1 = new Animal('Browny', 'male', 5)
-// const dog1 = new Dog('Blacky', 'male', 3)
-// animal1.speak();
-// dog1.speak();
+const dog1 = new Dog('Blacky', 'male', 3)
+animal1.speak();
+dog1.speak();
 console.log(animal1);
-// console.log('a ==> ',Object.values(animal1));
+console.log('a ==> ',Object.values(animal1));
 console.log('a ==> ',animal1.a);
 console.log('b ==> ',animal1.b);
 animal1.test();
+
+
+
+// new 對象機制
+// =============================
+
+// let str = "test";
+// let newStr = new str; // will be error
+// new 後必須跟一個對象並且此對象必須有一個名為 [[Construct]] 的內部方法（其實這種對象就是構造器），否則會拋出異常
+
+
+

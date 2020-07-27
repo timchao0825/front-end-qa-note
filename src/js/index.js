@@ -3,6 +3,26 @@ $(document).ready(function(){
 // con===============================================================================================
 console.log('index js. import');
 
+// let arrayA = ['a1','a2','a3'];
+let arrayA = [
+  {
+    id:1,
+    name: 'a1'
+  },
+  {
+    id:2,
+    name: 'a2'
+  }
+]
+// let arrayB = ['b1','b2','b3'];
+let arrayB = {
+  id:3,
+  name:'a3'
+}
+arrayA.push(arrayB);
+// arrayA = [...arrayA,...arrayB];
+console.log(arrayA);
+
 // setTimeout(function(){ console.log('index es5 js.'); }, 3000);
 // $('#first').on('click',function(){
 //   console.log('first click');
@@ -228,7 +248,7 @@ console.log('index js. import');
 
 
 
-// // es6 test  area
+// // es6 test area
 // setTimeout(() => { console.log("es6 to es2015 FTW"); }, 1000);
 // let NewOneWithParameters = (a, b) => {
 //   console.log( a + b + ' == number =='); 
