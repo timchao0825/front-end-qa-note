@@ -27,6 +27,16 @@
   
   - 一個 ul，底下 1000 個 li，如果你幫每一個 li 都加上一個 eventListener，你就新建了 1000 個 function，任何點擊 li 的事件其實都會傳到 ul 身上，因此我們可以在 ul 身上掛一個 listener 就好
 
+- 描述"event loop"
+  
+  - JavaScript是單線程（single threaded runtime）的程式語言，程式碼片段都會在堆疊中（stack）被執行，而且一次只會執行一個程式碼片段（one thing at a time）
+
+- 描述"event queue"
+
+- 描述"Currying"
+  
+  - 柯里化：又稱為 parital application 或 partial evaluation，是個「將一個接受 n 個參數的 function，轉變成 n 個只接受一個參數的 function」的過程
+
 - 描述"this"
   
   - this js training (training file)
@@ -41,6 +51,8 @@
     1. 變數宣告跟函式宣告都會提升
     2. 只有宣告會提升，賦值不會提升
     3. 別忘了函式裡面還有傳進來的參數
+  
+  - 函數宣告可以hoist，但類別宣告無法hoist
   
   - Great POST from Huli:https://blog.techbridge.cc/2018/11/10/javascript-hoisting/
 
@@ -203,6 +215,14 @@
       ```
 
 - JS higher order function (高階函式)
+
+- JS原型鍊練習(file training)
+  
+  - new 做了什麼？
+  
+  - prototype chain
+  
+  - prototype
 
 - `apply`、`bind`、`call` 是什麼？
   

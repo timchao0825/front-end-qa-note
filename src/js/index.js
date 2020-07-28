@@ -3,25 +3,27 @@ $(document).ready(function(){
 // con===============================================================================================
 console.log('index js. import');
 
+
+
 // let arrayA = ['a1','a2','a3'];
-let arrayA = [
-  {
-    id:1,
-    name: 'a1'
-  },
-  {
-    id:2,
-    name: 'a2'
-  }
-]
-// let arrayB = ['b1','b2','b3'];
-let arrayB = {
-  id:3,
-  name:'a3'
-}
-arrayA.push(arrayB);
-// arrayA = [...arrayA,...arrayB];
-console.log(arrayA);
+// let arrayA = [
+//   {
+//     id:1,
+//     name: 'a1'
+//   },
+//   {
+//     id:2,
+//     name: 'a2'
+//   }
+// ]
+// // let arrayB = ['b1','b2','b3'];
+// let arrayB = {
+//   id:3,
+//   name:'a3'
+// }
+// arrayA.push(arrayB);
+// // arrayA = [...arrayA,...arrayB];
+// console.log(arrayA);
 
 // setTimeout(function(){ console.log('index es5 js.'); }, 3000);
 // $('#first').on('click',function(){

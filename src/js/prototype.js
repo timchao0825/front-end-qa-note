@@ -1,6 +1,6 @@
 console.log('prototype js import')
 
-// basic 繼承
+// basic
 // =============================
 // function DOG(name){
 //   this.name = name;
@@ -158,43 +158,36 @@ console.log('prototype js import')
 
 // 繼承
 // =============================
-function Animal(name, gender, age) {
-  this.name = name;
-  this.gender = gender;
-  this.age = age;
-  this.a = 2;
-}
-Animal.prototype.speak = function() {
-  // console.log('some sounds');
-  console.log(this.name)
-};
-Animal.prototype.a = 3;
-Animal.prototype.b = 4;
-Animal.prototype.test = function(){
-  console.log('animal test func')
-};
-function Dog(name, gender, age) {
-  this.name = name;
-  this.gender = gender;
-  this.age = age;
-}
-Dog.prototype = Object.create(Animal.prototype);
-Dog.prototype.speak = function() {
-  console.log('Bow-wow');
-};
-Dog.prototype.move = function() {
-  console.log('walk');
-};
+// function Animal(name, gender, age) {
+//   this.name = name;
+//   this.gender = gender;
+//   this.age = age;
+//   this.a = 2;
+// }
+// Animal.prototype.speak = function() {
+//   console.log(this.name)
+// };
+// Animal.prototype.test = function(){
+//   console.log('animal test func')
+// };
+// function Dog(name, gender, age) {
+//   this.name = name;
+//   this.gender = gender;
+//   this.age = age;
+// }
+// Dog.prototype = Object.create(Animal.prototype);
+// Dog.prototype.speak = function() {
+//   console.log('Bow-wow');
+// };
+// Dog.prototype.move = function() {
+//   console.log('walk');
+// };
 
-const animal1 = new Animal('Browny', 'male', 5)
-const dog1 = new Dog('Blacky', 'male', 3)
-animal1.speak();
-dog1.speak();
-console.log(animal1);
-console.log('a ==> ',Object.values(animal1));
-console.log('a ==> ',animal1.a);
-console.log('b ==> ',animal1.b);
-animal1.test();
+// const animal1 = new Animal('Browny', 'male', 5)
+// const dog1 = new Dog('Blacky', 'male', 3)
+// animal1.speak();
+// dog1.speak();
+
 
 
 
@@ -203,7 +196,51 @@ animal1.test();
 
 // let str = "test";
 // let newStr = new str; // will be error
+
+// let num = new number(999); // will be error
+// let sNum = new Num // will be error
 // new 後必須跟一個對象並且此對象必須有一個名為 [[Construct]] 的內部方法（其實這種對象就是構造器），否則會拋出異常
+
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+// }
+// Person.prototype.log = function () {
+//   console.log(this.name + ', age:' + this.age);
+// }
+// function newObj(Constructor, arguments) {
+//   var o = new Object();
+//   // 讓 o 繼承原型鍊
+//   o.__proto__ = Constructor.prototype;
+
+//   // 執行建構函式
+//   Constructor.apply(o, arguments); // apply !?
+
+//   // 回傳建立好的物件
+//   return o;
+// }
+// var nick = newObj(Person, ['nick', 18]);
+// nick.log(); // nick, age:18
+
+
+var o = {
+  a: 2,
+  m: function() {
+    return this.a + 1;
+  }
+};
+
+console.log(o.m()); // 3
+// 在這裡呼叫 o.m 時「this」指的是 o
+
+var p = Object.create(o);
+// p 是個從 o 繼承的物件
+
+p.a = 4; // 在 p 建立屬性「a」
+console.log(p.a); // 4
+console.log(p.m()); // 5
+
+
 
 
 
