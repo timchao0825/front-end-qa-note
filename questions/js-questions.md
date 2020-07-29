@@ -27,11 +27,15 @@
   
   - 一個 ul，底下 1000 個 li，如果你幫每一個 li 都加上一個 eventListener，你就新建了 1000 個 function，任何點擊 li 的事件其實都會傳到 ul 身上，因此我們可以在 ul 身上掛一個 listener 就好
 
-- 描述"event loop"
+- 描述"event loop" 事件循環
   
   - JavaScript是單線程（single threaded runtime）的程式語言，程式碼片段都會在堆疊中（stack）被執行，而且一次只會執行一個程式碼片段（one thing at a time）
 
-- 描述"event queue"
+- 描述"event queue" 事件序列
+  
+  - 等待條件觸發在 JavaScript 稱為 Event queue，像是 setTimeout, addEventListener, XMLHttpRequest 等等，這些方法在執行時會先將事件放到這地方，並將所有的事件堆疊**完成後**，才會開始讓 `event queue` 內的事件被觸發。
+  
+  - 等待被觸發的事件
 
 - 描述"Currying"
   
@@ -227,7 +231,75 @@
 - `apply`、`bind`、`call` 是什麼？
   
   - apply
+    
+    - **apply()** 方法會呼叫一個以 this 的代表值和一個陣列形式的值組
+    
+    - 語法：fun.apply(thisArg, [argsArray])
+    
+    - ```js
+      var person = {
+        firstName : 'Tim',
+        lastName : 'Lin',
+        getFullName : function(){
+          var fullname = this.firstName + ' ' + this.lastName;
+          return fullname;
+        }
+      }
+      const logName = function(location1 , location2){
+        console.log('logged: ' + this.getFullName());
+        console.log('Arguments: ' + location1 + location2);
+      }
+      var arg = ['Taiwan' , 'Taipei'];
+      logName.apply(person, arg);
+      ```
   
   - bind
+    
+    - 會建立一個新函式。該函式被呼叫時，會將 `this` 關鍵字設為給定的參數，並在呼叫時，帶有提供之前，給定順序的參數
+    
+    - 語法：fun.bind(thisArg[, arg1[, arg2[, ...]]])
+    
+    - ```js
+      this.x = 9; // global x
+      var module = {
+        x: 81,
+        getX: function(){return this.x},
+      }
+      // console.log(module.x); // 81
+      var retrieveX = module.getX;
+      console.log(retrieveX()); // 9
+      var newRetrieveX = retrieveX.bind(module);
+      console.log(newRetrieveX());
+      ```
   
   - call
+    
+    - 使用給定的`this`參數以及分別給定的參數來呼叫某個函數
+    
+    - 語法：fun.call(thisArg[, arg1[, arg2[, ...]]])
+    
+    - ```js
+      function Product(name, price) {
+        this.name = name;
+        this.price = price;
+      
+        if (price < 0)
+          throw RangeError('Cannot create product "' + name + '" with a negative price');
+        return this;
+      }
+      
+      function Food(name, price) {
+        Product.call(this, name, price);
+        this.category = 'food';
+      }
+      Food.prototype = new Product();
+      
+      function Toy(name, price) {
+        Product.call(this, name, price);
+        this.category = 'toy';
+      }
+      Toy.prototype = new Product();
+      
+      var cheese = new Food('feta', 5);
+      var fun = new Toy('robot', 40);
+      ```
