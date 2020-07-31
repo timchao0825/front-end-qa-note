@@ -176,13 +176,156 @@ console.log('this js import')
 // const obj = {
 //   a: 'ojb',
 //   hello: function() {
-//     test() // 10
+//     test()
 //   },
 //   hello2: function() {
 //     var a = 200
-//     test() // 10
+//     test() 
+//   }
+// }
+
+// this 練習1
+// =============================
+// test(); // console.log(a) > var a = 10
+// console.log('==')
+// obj.hello() // call(obj) test func outsite > a = 10
+// console.log('==')
+// obj.hello2()// call(obj) test func outside > a = 10
+// console.log('==')
+
+// call
+// =============================
+// function add(a,b){
+//   console.log(this);
+//   const total = a + b;
+//   console.log(total);
+// }
+// const test = add.call("test123",2,3)
+
+// this 練習2
+// =============================
+// const obj = {
+//   value: 1,
+//   hello: function() {
+//     console.log(this.value)
 //   }
 // }
   
-// // test() // 10
+// obj.hello() // == obj.hello.call(obj) > this value = 1
+// const hey = obj.hello;
+// hey(); // hey.call(?)
 
+// this 練習3
+// =============================
+// const obj = {
+//   value: 1,
+//   hello: function() {
+//     console.log(this.value)
+//   },
+//   inner: {
+//     value: 2,
+//     hello: function() {
+//       console.log(this.value)
+//     }
+//   }
+// }
+  
+// const obj2 = obj.inner
+// const hello = obj.inner.hello
+// obj.inner.hello() // call(obj.inner) > value = 2
+// obj2.hello()  // call(obj2 = obj.inner) = 2
+// hello()  // call ? = undefined
+
+// this 練習4
+// =============================
+// function hello() {
+//   console.log(this)
+// }
+  
+// var a = { value: 1, hello }
+// var b = { value: 2, hello }
+// hello() // hell.call() this == window
+// a.hello() // a.hello.call(a) == a.object
+// b.hello.apply(a) // b.hello.apply(a)
+
+// this 練習5
+// =============================
+// var x = 10
+// var obj = {
+//   x: 20,
+//   fn: function() {
+//     var test = function() {
+//       console.log(this.x)
+//     }
+//     test()
+//   }
+// }
+  
+// obj.fn() // obj.fn.call(obj) == 10
+
+
+// 箭頭函式 this
+// =============================
+// const obj = {
+//   x: 1,
+//   hello: function(){
+//     // 這邊印出來的 this 是什麼，test 的 this 就是什麼
+//     // 就是我說的：
+//     // 在宣告它的地方的 this 是什麼，test 的 this 就是什麼
+//     console.log('hello func' ,this)     
+//     const test = () => {
+//       console.log('test func' , this.x)
+//     }
+//     test()
+//   }
+// }
+  
+// obj.hello() // 1
+// const hello = obj.hello
+// hello() // undefined
+
+var name = '全域阿婆'
+var auntie = {
+  name: '漂亮阿姨',
+  callName: function () { 
+    // 注意，這裡是 function，以此為基準產生一個作用域
+    console.log('1', this.name); // 漂亮阿姨
+    setTimeout(() => {
+      console.log('2 => ', this.name); //全域阿婆 XX 漂亮阿姨
+      console.log('3 => ', this); // window XX this object
+    }, 10);
+    setTimeout(function(){
+      console.log('2 func ', this.name); // 全域阿婆
+      console.log('3 func ', this); // window
+    }, 10);
+  },
+  callName2: () => { 
+    // 注意，如果使用箭頭函式，this 依然指向 window
+    console.log('4', this.name); //全域阿婆
+    setTimeout(() => {
+      console.log('5', this.name); //全域阿婆
+      console.log('6', this); // window
+    }, 10);
+  }
+}
+
+auntie.callName(); // auntie.callName.call(auntie)
+// auntie.callName2(); // auntie.callName2.call(auntie)
+
+
+// var func = function () {
+//   var func2 = function () {
+//     setTimeout(() => {
+//       console.log(this); 
+//     }, 10);
+//   };
+//   // 這裡才算真正的建立一個物件
+//   // 因此要在此物件下的箭頭函式才會以此作為基準
+//   var func3 = {
+//     func: func2,
+//     var4: 4,
+//   }
+//   func2(); //func2.call(?) >>  window
+//   func3.func(); //func3.func.call(func3) >> object func3
+// }
+// func(); 
