@@ -4,6 +4,33 @@ console.log('this js import')
 // call apply bind
 // =============================
 
+// const thisInFunctionExpression = function() {
+//   console.log(this);
+// }
+// thisInFunctionExpression();
+// const objectWithThis = {
+//   name: 'I am the object',
+//   log: function () {
+//     // problem solve 
+//     var self = this;
+//     self.name = 'Update current object name'
+//     // console.log(this);
+//     console.log(self); // object
+//     console.log(self.name); // current object name
+//     const setNameWithFunction = function(newName) {
+//       self.name = newName;
+//     }
+//     setNameWithFunction('Update object name to "NEW NAME"');
+//     console.log(self.name) // object name = new name
+//   }
+// }
+
+// objectWithThis.log();
+
+
+
+
+
 // function test(argv0, argv1) {
 //   console.log(this.v, argv0, argv1);
 // }
@@ -309,7 +336,7 @@ var auntie = {
   }
 }
 
-auntie.callName(); // auntie.callName.call(auntie)
+// auntie.callName(); // auntie.callName.call(auntie)
 // auntie.callName2(); // auntie.callName2.call(auntie)
 
 

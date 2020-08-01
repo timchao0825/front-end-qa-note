@@ -21,17 +21,17 @@
     1. 先捕獲，再冒泡
     2. 當事件傳到 target 本身，沒有分捕獲跟冒泡
 
-- 描述”event delegation“
+- 描述”Event Delegation“
   
   - 事件代理
   
   - 一個 ul，底下 1000 個 li，如果你幫每一個 li 都加上一個 eventListener，你就新建了 1000 個 function，任何點擊 li 的事件其實都會傳到 ul 身上，因此我們可以在 ul 身上掛一個 listener 就好
 
-- 描述"event loop" 事件循環
+- 描述"Event Loop" 事件循環
   
   - JavaScript是單線程（single threaded runtime）的程式語言，程式碼片段都會在堆疊中（stack）被執行，而且一次只會執行一個程式碼片段（one thing at a time）
 
-- 描述"event queue" 事件序列
+- 描述"Event Queue" 事件序列
   
   - 等待條件觸發在 JavaScript 稱為 Event queue，像是 setTimeout, addEventListener, XMLHttpRequest 等等，這些方法在執行時會先將事件放到這地方，並將所有的事件堆疊**完成後**，才會開始讓 `event queue` 內的事件被觸發。
   
@@ -44,6 +44,11 @@
 - 描述"this"
   
   - this js training (training file)
+  - this永遠指向函式執行時所在的物件，而不是函式被建立時所在的物件
+  - 普通的函式呼叫，函式被誰呼叫，this就是誰
+  - 建構函式的話，如果不用new操作符而直接呼叫，那即this指向window。用new操作符生成物件例項後，this就指向了新生成的物件
+  - 匿名函式或不處於任何物件中的函式指向window
+  - 如果是call，apply等，指定的this是誰，就是誰
 
 - 描述 “hoisting”
   
@@ -303,3 +308,13 @@
       var cheese = new Food('feta', 5);
       var fun = new Toy('robot', 40);
       ```
+
+- `null`、`undefined`和 `undeclared`變數之間有什麼差異？
+  
+  - null > 是一個空的物件引用。“沒有物件”，即該處不應該有值
+  
+  - undeclared > (未宣告) 變數在未宣告並使用的狀況下會得到，瀏覽器會報錯，JS執行會中斷
+  
+  - undefined > (未定義) 表示變數曾被宣告但值未被定義
+
+
