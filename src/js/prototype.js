@@ -1,5 +1,5 @@
 console.log('prototype js import')
-
+console.log('=============================')
 // basic
 // =============================
 // function DOG(name){
@@ -223,24 +223,147 @@ console.log('prototype js import')
 // nick.log(); // nick, age:18
 
 
-var o = {
-  a: 2,
-  m: function() {
-    return this.a + 1;
+// var o = {
+//   a: 2,
+//   m: function() {
+//     return this.a + 1;
+//   }
+// };
+
+// console.log(o.m()); // 3
+// // 在這裡呼叫 o.m 時「this」指的是 o
+
+// var p = Object.create(o);
+// // p 是個從 o 繼承的物件
+
+// p.a = 4; // 在 p 建立屬性「a」
+// console.log(p.a); // 4
+// console.log(p.m()); // 5
+
+
+
+// class es6 語法糖
+// =============================
+
+
+
+
+
+// 原型 原始寫法
+// =============================
+// function Person(name) {
+//   this.name = name
+// }
+// Person.prototype.hello = function () {
+//   console.log(`Hello ${this.name}.`)
+// }
+// let gary = new Person('Gary')
+// gary.hello() 
+
+// Hello Gary.
+//console.log(Object.getPrototypeOf(gary); // {hello: ƒ, constructor: ƒ}
+
+
+// class 練習 1
+// =============================
+// class Person{
+//   constructor (name , age , skill) {
+//     this.name = name;
+//     this.age = age;
+//     this.skill = skill
+//   }
+
+//   hello = () => {
+//     console.log(`Hello ${this.name} , ${this.age} old , nice to ${this.skill}`);
+//   }
+// }
+
+// class Engineer extends Person{
+//   constructor(name,age,skill){
+//     super(name,age,skill); // call person; 
+//     // this.skill = skill
+//   }
+
+//   test = (name) => {
+//     console.log(this.name)
+//   }
+// }
+
+// let tim = new Person('tim' , '20');
+
+// let alice = new Engineer('alice' , '22' , 'JavaScript');
+
+// tim.hello();
+// alice.hello();
+
+
+// class 練習 2
+// =============================
+
+// prototype
+// function Person(name) {
+//   // public properties
+//   this.name = name;
+//   // private value
+//   const state = 'Taiwan';
+//   // privileged methods
+//   this.getFrom = () => `${this.name} from ${state}.`;
+// }
+// Person.prototype.hello = function(){
+//   console.log('Hello ' + this.name);
+// }
+
+// const john = new Person('John');
+// john.hello(); // hello john
+// console.log(john); // { name: 'John', getFrom: [Function] }
+// console.log(john.state); // undefined
+// console.log(john.getFrom()); // John from Taiwan.
+
+
+// prototype inheritance
+function Person(name) {
+  this.name = name;
+  const state = 'Taiwan';
+
+  this.getFrom = () => `${this.name} from ${state}.`;
+}
+
+function Employee(name, position) {
+  // 將 this 送給 Person 建立 properties
+  Person.call(this, name);
+  this.position = position;
+
+  // public properties
+  this.getPosition = () => `${this.name}'s position is a ${this.position}.`;
+}
+
+const luck = new Employee('Luck', 'Front-end');
+
+console.log(luck.getFrom()); // Luck from Taiwan.
+console.log(luck.getPosition()); // Luck's position is the Front-end.
+
+
+// es6 class
+// =============================
+class PersonClass{
+  constructor(name){
+    this.name = name;
   }
-};
 
-console.log(o.m()); // 3
-// 在這裡呼叫 o.m 時「this」指的是 o
+  getForm(){
+    const state = `Taiwan`;
+    console.log(`${this.name} from ${state}`); 
+  }
+}
 
-var p = Object.create(o);
-// p 是個從 o 繼承的物件
+const john = new PersonClass('john');
 
-p.a = 4; // 在 p 建立屬性「a」
-console.log(p.a); // 4
-console.log(p.m()); // 5
+// console.log(JSON.stringify(john)); 
+// // { name: 'John' }  public 方法不再顯露於物件裡
 
+// console.log(JSON.stringify(john.state));
+// // undefined
+// john.getForm();
+// // John from Taiwan.
 
-
-
-
+// class inheritance

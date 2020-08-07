@@ -3,6 +3,12 @@ $(document).ready(function(){
 // con===============================================================================================
 console.log('index js. import');
 
+// array spread operation
+// =============================
+let arrayA = [1,2,3,4,5,6];
+let arrayB = arrayA.slice();
+// let arrayB = [...arrayA];
+console.log(arrayB);
 
 
 // let arrayA = ['a1','a2','a3'];

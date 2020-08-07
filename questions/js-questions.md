@@ -67,6 +67,10 @@
 
 - 描述”immutable“
 
+- call by value , call by reference
+
+- 
+
 - 談談”Scope Chain“
   
   - 簡單的來說，Scope Chain就是在找變項的過程中，從內層找到外層，直到最外面的global environment的這條鍊，就叫做Scope Chain。
@@ -122,12 +126,54 @@
     2. 當網頁已經被置入永久的scripts
     
     目標通常是將有儲存用戶資訊的部分（Cookie或Session）回傳給攻擊者，或是將受害者導到特定的網站。
+    
+    預防：
+    
+    #### Stored、Reflected 防範
+    
+    前兩種 Stored、Reflected 的類型都必須由後端進行防範，除了必要的 HTML 代碼，任何允許使用者輸入的內容都需要檢查，刪除所有「<script>」、「 onerror=」及其他任何可能執行代碼的字串。當瀏覽器解析時遇到右欄的文字內容，會認為是左欄的字元，但絕對不會當成代碼的部份，而是純粹的文字，所以顯示上還是會像左邊的字元。
+    
+    #### DOM-Based 防範
+    
+    其他兩種類型必須由後端來防範，而 DOM-Based 則必須由前端來防範，但基本上還是跟前面的原則相同。
+    
+    另外不同的一點就是應該選擇正確的方法、屬性來操作
+     DOM，譬如前面的示範中會產生漏洞的主要原因是「 document.getElementById('show_name').innerHTML
+     = name; 」中的「 innerHTML 」屬性，此屬性代表插入的內容是合法的 HTML 字串，所以字串會解析成 DOM 物件。
+    
+    此處的話應該使用「 innerText 」，使用此屬性插入字串時，會被保證作為純粹的文字，也就不可能被插入惡意代碼執行了。
   
   - **C** ross **S** ite **R** equest **F** orgery （跨站請求偽造）
     
     Ex. 如果我的網站([http://exampleMe.com](http://exampleMe.com)) 上有個按鈕，是刪除文章用，點擊時送出這樣的請求 `GET /delete/article/:article_id`。
     
-    那麼如果在別的網站上 ([http://exampleB.com](http://exampleB.com)) 有個按鈕，`href` 為 `http://exampleMe.com/delete/article/:article_id`，這樣的話，只要能取得瀏覽器內的cookie或session資訊，就能在別的網站偽造同樣的請求，刪除我自己網站上的文章。
+    那麼如果在別的網站上 ([http://exampleB.com](http://exampleB.com)) 有個按鈕，`href` 為 `http://exampleMe.com/delete/article/:article_id`，這樣的話，只要能取得瀏覽器內的cookie或session資訊，就能在別的網站偽造同樣的請求，刪除我自己網站上的文章。預防：
+    
+    #### Server 的防禦：
+    
+    簡單來說就是：「我要怎麼擋掉從別的 domain 來的 request」
+    
+    #### 檢查 Referer：
+    
+     request 的 header 裡面會帶一個欄位叫做 referer，代表這個 request 是從哪個地方過來的，可以檢查這個欄位看是不是合法的 domain，不是的話直接 reject 掉即可
+    
+    加上圖形驗證碼、簡訊驗證碼等等：就跟網路銀行轉帳的時候一樣，都會要你收簡訊驗證碼，多了這一道檢查就可以確保不會被 CSRF 攻擊
+    
+    #### CSRF token：
+    
+    要防止 CSRF 攻擊，我們其實只要確保有些資訊「只有使用者知道」即可。那該怎麼做呢？
+    
+    我們在 form 裡面加上一個 hidden 的欄位，叫做`csrftoken`，這裡面填的值由 server 隨機產生，並且存在 server 的 session 中
+    
+    #### browser 本身的防禦：
+    
+    成立 CSRF，是因為瀏覽器的機制所導致的，有沒有可能從瀏覽器方面下手，來解決這個問題呢？
+    
+    有！而且已經有了。而且啟用的方法非常非常簡單。
+    
+    Google 在 Chrome 51 版的時候正式加入了這個功能：[SameSite cookie](https://www.chromestatus.com/feature/4672634709082112)，對詳細運行原理有興趣的可參考：[draft-west-first-party-cookies-07](https://tools.ietf.org/html/draft-west-first-party-cookies-07)。
+    
+    
 
 - 有使用過HTTP/2的經驗嗎？
   
@@ -316,5 +362,3 @@
   - undeclared > (未宣告) 變數在未宣告並使用的狀況下會得到，瀏覽器會報錯，JS執行會中斷
   
   - undefined > (未定義) 表示變數曾被宣告但值未被定義
-
-

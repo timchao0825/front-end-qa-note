@@ -1,4 +1,4 @@
-console.log('promist js')
+console.log('promist js init')
 // ------ example post api
 // [ 
 //   {
@@ -38,6 +38,7 @@ function getArticleList(callback){
 
 function getArticle(id, callback){
   let newID = id + 1; // 2
+  console.log(id);
   let url = `https://jsonplaceholder.typicode.com/posts/${newID}`
   $.ajax(url,{
     // id: id
@@ -50,7 +51,7 @@ function getAuthor(id, callback){
   let newID = id + 1; // 3
   let url =`https://jsonplaceholder.typicode.com/posts/${newID}/comments`
   $.ajax(url,{
-    author: id
+    // author: id
   }).done(function(result){
     callback(result);
   })
@@ -60,8 +61,8 @@ function getAuthor(id, callback){
 // getArticleList(function(post){
 // 	getArticle(post.id, function(post){
 //     getAuthor(post.id, function(comment){
-//       console.log('post comment ID =>' + comment[0].postId);
-//       console.log('post comment name =>' + comment[0].name);
+//       console.log('post comment ID => ' + comment[0].postId);
+//       console.log('post comment name => ' + comment[0].name);
 //     })
 //   })
 // })
@@ -136,3 +137,35 @@ function getArticlePromise(id){
 //   console.log(article);
 // }
 // run();
+
+
+
+// function promiseFun(){
+//   return new Promise((resolve , reject) => {
+//     setTimeout(() => {
+//       resolve('promise fun');
+//     }, 300);
+//   })
+// }
+const promise1 = new Promise((resolve , reject) => {
+  setTimeout(() => {
+    resolve('foo');
+  }, 300);
+})
+
+promise1.then((val)=>{
+  console.log(val);
+}).then(()=>{
+  console.log('after foo');
+})
+
+// promiseFun()
+//   .then((val)=>{
+//     console.log(val);
+//   })
+
+// function test(){
+//   console.log('test => ');
+// }
+
+
