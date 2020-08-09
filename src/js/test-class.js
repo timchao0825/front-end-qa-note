@@ -1,4 +1,4 @@
-console.log('test class init')
+console.log('test class init');
 // test 1
 // function printStar(int){
 //   let str = "";
@@ -21,26 +21,20 @@ console.log('test class init')
 // capitalize('test')
 // capitalize2('yayayasafksdjf;sajf')
 
-
-
 // array flatten
 // =============================
-const arr = ["A", ["B", [["B11", "B12", ["B131", "B132"]], "B2"]], "C", ["D", "E", "F", ["G", "H", "I"]]]
+const arr = ['A', ['B', [['B11', 'B12', ['B131', 'B132']], 'B2']], 'C', ['D', 'E', 'F', ['G', 'H', 'I']]];
 const flatArray = (arr) => {
-  const res = []
-  for (let item of arr) {
+  const res = [];
+  for (const item of arr) {
     if (Array.isArray(item)) {
-      const subRes = flatArray(item)
-      res.push(...subRes)
+      const subRes = flatArray(item);
+      res.push(...subRes);
     } else {
-      res.push(item)
+      res.push(item);
     }
   }
-  return res
-}
+  return res;
+};
 
-console.log(flatArray(arr))
-
-
-
-
+console.log(flatArray(arr));
