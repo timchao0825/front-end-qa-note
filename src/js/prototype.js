@@ -1,8 +1,8 @@
-console.log('prototype js import')
-console.log('=============================')
+console.log('prototype js import');
+console.log('=============================');
 // basic
 // =============================
-// function DOG(name){
+// function DOG(name) {
 //   this.name = name;
 //   this.species = '犬科';
 // }
@@ -12,7 +12,7 @@ console.log('=============================')
 // console.log(dogB.name); // 大毛
 // console.log(dogA.species); // 犬科
 // console.log(dogB.species); // 犬科
-// dogA.species = "貓科";
+// dogA.species = '貓科';
 // console.log(dogA.species); // 貓科
 // console.log(dogB.species); // 犬科
 
@@ -20,7 +20,7 @@ console.log('=============================')
 // =============================
 // function DOG(name){
 //   this.name = name;
-// } 
+// }
 // 现在，species屬性放在prototype對象裡，是兩個實例對象共享的。只要修改了prototype對象，就會同時影響到兩個實例對象
 // DOG.prototype = { species : '犬科' };
 // var dogA = new DOG('大毛');
@@ -66,34 +66,34 @@ console.log('=============================')
 //   this.name = name;
 //   this.age = age;
 // }
-  
+
 // Person.prototype.log = function () {
 //   console.log(this.name + ', age:' + this.age);
 // }
-  
+
 // var nick = new Person('nick', 18);
 // var peter = new Person('peter', 20);
 // nick.log(); // nick, age:18
 // peter.log(); // peter, age:20
 // console.log(nick.log === peter.log) // true
 
-// 原理 , proto chain 原型鍊 __proto__
+// 原理 , prototype chain 原型鍊 __proto__
 // =============================
 
 // function Person(name, age) {
 //   this.name = name;
 //   this.age = age;
 // }
-  
+
 // Person.prototype.log = function () {
 //   console.log(this.name + ', age:' + this.age);
 // }
-  
+
 // Person.prototype.log2 = function () {
 //   console.log(this.name + ', age:' + this.age);
 // }
 // var nick = new Person('nick', 18);
-  
+
 // console.log(nick.__proto__ === Person.prototype) // true
 
 // prototype 原型鏈 練習3
@@ -102,22 +102,21 @@ console.log('=============================')
 //   this.name = name;
 //   this.age = age;
 // }
-  
+
 // Person.prototype.log = function () {
 //   console.log(this.name + ', age:' + this.age);
 // }
-  
+
 // var nick = new Person('nick', 18);
-  
+
 // // 這個剛講過了，nick.__proto__ 會指向 Person.prototype
 // console.log(nick.__proto__ === Person.prototype) // true
-  
+
 // // 那 Person.prototype.__proto__ 會指向誰呢？會指向 Object.prototype
 // console.log(Person.prototype.__proto__ === Object.prototype) // true
-  
+
 // // 那 Object.prototype.__proto__ 又會指向誰呢？會指向 null，這就是原型鍊的頂端了
 // console.log(Object.prototype.__proto__) // null
-
 
 // hasOwnProperty
 // =============================
@@ -126,15 +125,14 @@ console.log('=============================')
 //   this.name = name;
 //   this.age = age;
 // }
-  
+
 // Person.prototype.log = function () {
 //   console.log(this.name + ', age:' + this.age);
 // }
-  
+
 // var nick = new Person('nick', 18);
 // console.log(nick.hasOwnProperty('log')); // false
 // console.log(nick.__proto__.hasOwnProperty('log')); // true
-
 
 // instanceof
 // =============================
@@ -143,18 +141,16 @@ console.log('=============================')
 //   this.name = name;
 //   this.age = age;
 // }
-  
+
 // Person.prototype.log = function () {
 //   console.log(this.name + ', age:' + this.age);
 // }
-  
+
 // var nick = new Person('nick', 18);
-  
+
 // console.log(nick instanceof Person); // true
 // console.log(nick instanceof Object); // true
 // console.log(nick instanceof Array); // false
-
-
 
 // 繼承
 // =============================
@@ -188,9 +184,6 @@ console.log('=============================')
 // animal1.speak();
 // dog1.speak();
 
-
-
-
 // new 對象機制
 // =============================
 
@@ -222,7 +215,6 @@ console.log('=============================')
 // var nick = newObj(Person, ['nick', 18]);
 // nick.log(); // nick, age:18
 
-
 // var o = {
 //   a: 2,
 //   m: function() {
@@ -240,14 +232,8 @@ console.log('=============================')
 // console.log(p.a); // 4
 // console.log(p.m()); // 5
 
-
-
 // class es6 語法糖
 // =============================
-
-
-
-
 
 // 原型 原始寫法
 // =============================
@@ -258,11 +244,10 @@ console.log('=============================')
 //   console.log(`Hello ${this.name}.`)
 // }
 // let gary = new Person('Gary')
-// gary.hello() 
+// gary.hello()
 
 // Hello Gary.
-//console.log(Object.getPrototypeOf(gary); // {hello: ƒ, constructor: ƒ}
-
+// console.log(Object.getPrototypeOf(gary); // {hello: ƒ, constructor: ƒ}
 
 // class 練習 1
 // =============================
@@ -280,7 +265,7 @@ console.log('=============================')
 
 // class Engineer extends Person{
 //   constructor(name,age,skill){
-//     super(name,age,skill); // call person; 
+//     super(name,age,skill); // call person;
 //     // this.skill = skill
 //   }
 
@@ -295,7 +280,6 @@ console.log('=============================')
 
 // tim.hello();
 // alice.hello();
-
 
 // class 練習 2
 // =============================
@@ -319,46 +303,42 @@ console.log('=============================')
 // console.log(john.state); // undefined
 // console.log(john.getFrom()); // John from Taiwan.
 
-
 // prototype inheritance
-function Person(name) {
-  this.name = name;
-  const state = 'Taiwan';
+// function Person(name) {
+//   this.name = name;
+//   const state = 'Taiwan';
 
-  this.getFrom = () => `${this.name} from ${state}.`;
-}
+//   this.getFrom = () => `${this.name} from ${state}.`;
+// }
 
-function Employee(name, position) {
-  // 將 this 送給 Person 建立 properties
-  Person.call(this, name);
-  this.position = position;
+// function Employee(name, position) {
+//   // 將 this 送給 Person 建立 properties
+//   Person.call(this, name);
+//   this.position = position;
 
-  // public properties
-  this.getPosition = () => `${this.name}'s position is a ${this.position}.`;
-}
+//   // public properties
+//   this.getPosition = () => `${this.name}'s position is a ${this.position}.`;
+// }
 
-const luck = new Employee('Luck', 'Front-end');
+// const luck = new Employee('Luck', 'Front-end');
 
-console.log(luck.getFrom()); // Luck from Taiwan.
-console.log(luck.getPosition()); // Luck's position is the Front-end.
-
+// console.log(luck.getFrom()); // Luck from Taiwan.
+// console.log(luck.getPosition()); // Luck's position is the Front-end.
 
 // es6 class
 // =============================
-class PersonClass{
-  constructor(name){
-    this.name = name;
-  }
+// class PersonClass {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  getForm(){
-    const state = `Taiwan`;
-    console.log(`${this.name} from ${state}`); 
-  }
-}
-
-const john = new PersonClass('john');
-
-// console.log(JSON.stringify(john)); 
+//   getForm() {
+//     const state = `Taiwan`;
+//     console.log(`${this.name} from ${state}`);
+//   }
+// }
+// const john = new PersonClass('john');
+// console.log(JSON.stringify(john));
 // // { name: 'John' }  public 方法不再顯露於物件裡
 
 // console.log(JSON.stringify(john.state));

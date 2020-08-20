@@ -12,6 +12,14 @@
   
   http://www.webpage.idv.tw/maillist/maillist4/new/02/02.htm
 
+- HTTP 的資料傳輸(HTTP & HTTPS Def)
+  
+  - HTTP 全名是 [超文本傳輸協定（HyperText Transfer Protocol）](https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE)，內容只規範了客戶端請求與伺服器回應的標準，實際上是藉由 [TCP](https://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE) 作為資料的傳輸方式。
+    - 例如使用者送出了一個請求，經過 TCP 的三次握手之後，資料便能透過 TCP 傳遞給伺服器，並等待伺服器回應；然而這個一來一往的傳輸過程，資料都是 [明文](https://zh.wikipedia.org/zh-tw/%E6%98%8E%E6%96%87)；如果傳遞的過程中有惡意竊聽者，資料便有機會被窺探、盜用。
+    - 在HTTP協議裏，Web端與Server端進行通訊是使用"明文"的方式，因為HTTP協議本身並不具備加密的功能，所以無法對請求端以及響應端的內容進行加密。
+    - HTTP協議不管是web端還是server端都不會對雙方的身份來進行驗證(例如server端收到請求時，只會要求訊息正確，卻不會去驗證這是不是真的是對應到的web端發出來的，而且server只會對請求做出一次響應)，也無法驗證內文的完整性，所以內容很有可能被竊聽或是竄改(也就是你可能不是跟你所想的對象交談)
+  - HTTPS(超文本傳輸"安全協定")，就是透過了SSL/TSL去做了一道安全鎖，透過前述提到的andshake(交握)、公鑰基礎設施(也就是公私鑰加密)、CA(第三方身分認證機構)等，來解決前面我們HTTP無法解決的問題。
+
 - standards mode 和 quirks mode 有什麼不同？
   
   > 目前瀏覽器的排版引擎有三種模式：怪異模式（Quirks mode）、接近標準模式（Almost standards mode）、以及標準模式（Standards mode）。在**怪異模式**，排版會模擬 Navigator 4 與 Internet Explorer 5 的非標準行為。

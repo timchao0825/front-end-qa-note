@@ -68,8 +68,57 @@
 - 描述”immutable“
 
 - call by value , call by reference
+  
+  - call by value
+    
+    - 在呼叫 function 的時候把「值」給複製一份。
+  
+  ```js
+  function swap(a, b) {
+    var temp = a;
+    a = b;
+    b = temp;
+  }
+  
+  var x = 10;
+  var y = 20;
+  swap(x, y);
+  console.log(x, y) // 10, 20
+  ```
+  
+  - call by reference
+    
+    - 你傳進去的東西就是真的 x 跟 y，function 裡面的 a 跟 b 只是別名（alias）而已，改變 a 就會改變 x
+  
+  ```js
+  function add(obj) {
+   obj.number++
+  }
+  var o = {number: 10}
+  add(o)
+  console.log(o.number) // 11
+  ```
+  
+  - call by sharing
+    
+    - 我們讓 function 裡面的那個`obj`跟外面的`o`「共享」同一個 object，所以透過裡面的 obj，你可以去修改「共享到的那個 object」的資料
+  
+  ```js
+  function add(obj) {
+    // 讓 obj 變成一個新的 object
+    obj = {
+      number: obj.number + 1
+    }
+  }
+  
+  var o = {number: 10}
+  add(o)
+  console.log(o.number) // 10
+  ```
 
-- 
+    
+
+
 
 - 談談”Scope Chain“
   
@@ -172,8 +221,6 @@
     有！而且已經有了。而且啟用的方法非常非常簡單。
     
     Google 在 Chrome 51 版的時候正式加入了這個功能：[SameSite cookie](https://www.chromestatus.com/feature/4672634709082112)，對詳細運行原理有興趣的可參考：[draft-west-first-party-cookies-07](https://tools.ietf.org/html/draft-west-first-party-cookies-07)。
-    
-    
 
 - 有使用過HTTP/2的經驗嗎？
   
