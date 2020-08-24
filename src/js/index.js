@@ -1,12 +1,32 @@
 // es5 area
 $(document).ready(function () {
   // con===============================================================================================
-  console.log("index js. import");
+  console.log('index js. import');
 
+  // array dif
+  const arr = ['arr', '1', 'sss', '123', '1', 2, 3, 1111, 2, 3, 444];
+  const uArr = arr.filter(function (item, pos, self) {
+    return self.indexOf(item) === pos;
+  });
+  console.log(uArr);
+
+  // js recursive 10 to 0
+  for (let i = 10; i >= 0; i--) {
+    console.log(i);
+  }
+  // function printArr(a) {
+  //   console.log(a);
+  //   a--;
+  //   if (a >= 0) {
+  //     printArr(a);
+  //   }
+  // }
+  // printArr(10);
+  // console.log('123');
   // array spread operation
   // =============================
-  let arrayA = [1, 2, 3, 4, 5, 6];
-  let arrayB = arrayA.slice();
+  // let arrayA = [1, 2, 3, 4, 5, 6];
+  // let arrayB = arrayA.slice();
   // let arrayB = [...arrayA];
   // console.log(arrayB);
 

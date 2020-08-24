@@ -20,6 +20,28 @@
     - HTTP協議不管是web端還是server端都不會對雙方的身份來進行驗證(例如server端收到請求時，只會要求訊息正確，卻不會去驗證這是不是真的是對應到的web端發出來的，而且server只會對請求做出一次響應)，也無法驗證內文的完整性，所以內容很有可能被竊聽或是竄改(也就是你可能不是跟你所想的對象交談)
   - HTTPS(超文本傳輸"安全協定")，就是透過了SSL/TSL去做了一道安全鎖，透過前述提到的andshake(交握)、公鑰基礎設施(也就是公私鑰加密)、CA(第三方身分認證機構)等，來解決前面我們HTTP無法解決的問題。
 
+- HTTP/1 , HTTP/1.1 , HTTP/2 的介紹
+  
+  - HTTP 1
+    
+    
+  
+  - HTTP 1.1
+    
+    - HTTP/1.1 有一個非常大的缺陷是每個對伺服器的 Request 資源請求，都必須佔用一個網路連線（TCP connection），傳完一個檔案才能再傳下一個，瀏覽器無法同時下載。因此在 HTTP/1.1 時代，瀏覽器為了加速下載的時間，只好同時允許六個網路連線（TCP connection）併發去連接伺服器，好可以達成同時下載六個資源。但是極限也是如此了，並不是說無限制增加網路連線就可以解決這個瓶頸，因為每一次的網路連線，都必須經過三次握手的初始網路連線程序，而且每次初始連線因為流量控制的關係，一開始的網路封包會傳輸比較慢，後來才逐漸加快
+  
+  - HTTP/2
+    
+    - 只需要單一網路連線（Single TCP connection），就可以連接網站伺服器，下載所有需要的資源。大大節省 HTTP/1.1 需要一直建立多個網路連線時的啟動時間浪費
+    
+    - 連線多工（Multiplexing），在單一網路連線上，就可以同時傳輸多個 HTTP Request 和 Response，併發請求 CSS/JS/Images 等等資源。它的原理是將 Requests/Responses 都拆碎成小 frames 進行傳輸，而這些 frames 是可以交錯的，因此檔案再多也不怕，不會發生佔用網路連線（TCP connection）的情況。這就是為什麼在圖檔多的情況下，HTTP/2 特別有優勢
+    
+    - 優先權設計([Prioritization](https://nghttp2.org/blog/2014/04/27/how-dependency-based-prioritization-works/))，伺服器可以決定例如 CSS 或 JavaScript 檔案，哪些要優先傳送
+    
+    - Binary 二進位的封包結構設計，對伺服器和瀏覽器來說，可以更快的解析這些資料。冷知識：在 HTTP/1.1 定義了[四種解析訊息的方式](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.4)，在 HTTP/2 只需要一種
+    
+    - 伺服器主動推送資源（Server Push），允許伺服器除了 HTML 之外，連同需要的 CSS/JavaScript/Images 檔案，主動推到瀏覽器的快取之中。不過，這個功能比較有爭議，一來他需要 Web 開發者額外描述有哪些檔案需要隨著 HTML 一起推送給瀏覽器，不是 Web 伺服器升級 HTTP/2 就自動會有。二來它不管瀏覽器是不是已經有快取這個資源，都會推送而造成頻寬浪費。因此實務上筆者認為可以改用瀏覽器的 [Prefetch](https://css-tricks.com/prefetching-preloading-prebrowsing/) 功能，讓客戶端的瀏覽器自己處理即可
+
 - standards mode 和 quirks mode 有什麼不同？
   
   > 目前瀏覽器的排版引擎有三種模式：怪異模式（Quirks mode）、接近標準模式（Almost standards mode）、以及標準模式（Standards mode）。在**怪異模式**，排版會模擬 Navigator 4 與 Internet Explorer 5 的非標準行為。
@@ -88,7 +110,7 @@
   
   - sessionStorage：生命週期僅存活到瀏覽器或頁面關閉
   
-  - locationStorage：生命週期較長，要等到使用Javascript清空localStorage或清空cache才會消失
+  - localStorage：生命週期較長，要等到使用Javascript清空localStorage或清空cache才會消失
 
 - 描述下列之間的不同 `<script>`, `<script async>` & `<script defer>`
   
