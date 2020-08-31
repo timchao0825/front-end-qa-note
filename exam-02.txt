@@ -1,0 +1,10 @@
+1.費式數列（寫錯小地方
+2.去除重複的Array
+3.null,undefined,undeclared 
+4.遞迴10～0 (小地方寫錯
+5.描述redux
+6.react 生命週期
+7.作用域考題
+8.是否有寫過測試，描述你的經驗（當時寫使用Jest
+9.描述pure function
+10.描述同步與非同步

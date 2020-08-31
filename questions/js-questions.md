@@ -118,8 +118,6 @@
 
     
 
-
-
 - 談談”Scope Chain“
   
   - 簡單的來說，Scope Chain就是在找變項的過程中，從內層找到外層，直到最外面的global environment的這條鍊，就叫做Scope Chain。
@@ -367,7 +365,7 @@
       var retrieveX = module.getX;
       console.log(retrieveX()); // 9
       var newRetrieveX = retrieveX.bind(module);
-      console.log(newRetrieveX());
+      console.log(newRetrieveX()); // 81
       ```
   
   - call
@@ -408,4 +406,4 @@
   
   - undeclared > (未宣告) 變數在未宣告並使用的狀況下會得到，瀏覽器會報錯，JS執行會中斷
   
-  - undefined > (未定義) 表示變數曾被宣告但值未被定義
+  - undefined > (未定義) 表示變數曾被宣告．但值未被定義
