@@ -4,7 +4,7 @@
   
   - 事件冒泡
   
-  - 當某個事件發生在某個DOM element上（如：點擊），這個事件會觸發DOM elemtn的event handler，接下來會再觸發他的parent的event handler，以及parent的parent的event handler…直到最上層。
+  - 當某個事件發生在某個DOM element上（如：點擊），這個事件會觸發DOM element的event handler，接下來會再觸發他的parent的event handler，以及parent的parent的event handler…直到最上層。
 
 - 描述”Event Capturing“
   
@@ -407,3 +407,44 @@
   - undeclared > (未宣告) 變數在未宣告並使用的狀況下會得到，瀏覽器會報錯，JS執行會中斷
   
   - undefined > (未定義) 表示變數曾被宣告．但值未被定義
+
+- 時間複雜度
+  
+  - 定義：完全地執行程式所需的計算機時間
+  
+  - 例子：
+  
+  - O(1)：演算法執行的步驟是固定的，無關輸入的值而改變
+    
+    不管 n 輸入多少，這個程式永遠只會執行一次
+    
+    ```js
+    function(int n){
+        print(n);
+    }
+    ```
+  
+  - O(n)：依據輸入的 n 的數量會跑 n 次
+    
+    ```js
+    function(int n){
+        for(i=0;i<n;i++){
+            print(i);
+        }
+    }
+    ```
+  
+  - O(2^n)：跑了n x (n - 1) = n^2 - n 次，但我們還是會記做O(n^2)
+    
+    ```js
+    function(int n){
+        for(i=0;i<n;i++){
+            for(j=0;j<n-1;j++){
+                print(i*j);
+            }
+        }
+    }
+    ```
+    
+    
+    
