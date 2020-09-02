@@ -121,9 +121,13 @@ console.log('exam02 js import');
 // 3.變更被寫成 pure function：要指定 state tree 如何藉由 action 來轉變，你必須撰寫 pure reducer。
 
 // 6. react生命週期
+
 // 7. 作用域考題
 // 考題內容 js function 預設參數
 
 // 8. 是否寫過測試
+
 // 9. 描述pure function
+// 將相同的輸入丟入，永遠都會回傳相同的輸出，並且不對任何該函數以外的任何作用域產生影響。
+
 // 10. 描述同步與非同步

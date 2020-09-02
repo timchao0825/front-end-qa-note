@@ -445,6 +445,19 @@
         }
     }
     ```
-    
-    
-    
+
+- Pure Functions (純函式)：將相同的input丟入函式，永遠會回傳相同的output結果，而且在過程中完全沒有任何的“副作用”，**副作用**通常意味著「避免狀態改變」、「避免資料改變」
+  
+  ```js
+  // slice: Pure Function 
+  var arr = [1, 2, 3, 4, 5, 6];
+  arr.slice(0, 3); // output = [1, 2, 3], arr = [1, 2, 3, 4, 5, 6]
+  arr.slice(0, 3); // output = [1, 2, 3], arr = [1, 2, 3, 4, 5, 6]
+  
+  // splice: not Pure Function 
+  var arr = [1, 2, 3, 4, 5, 6];
+  arr.splice(0, 3); // output = [1, 2, 3], arr = [4, 5, 6]
+  arr.splice(0, 3); // output = [4, 5, 6], arr = []
+  ```
+  
+  - slice 函式(Functions)就符合我們**Pure Functions**的規範，*相同input，永遠回傳相同output且無副作用。*而splice函式(Functions)則是每次呼叫，output以及原始資料皆會不相同，因此不算是Pure Functions
