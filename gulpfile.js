@@ -342,6 +342,7 @@ function browsersyncInit(done) {
     open: false,
     server: {
       baseDir: './dist',
+      port: 3001,
       // online: false
     },
   });
